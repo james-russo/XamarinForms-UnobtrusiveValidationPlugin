@@ -32,7 +32,7 @@ The library follows an MVVM pattern and below are examples on how to get started
  [FluentValidation.Attributes.Validator(typeof(PersonValidator))]
  public class PersonViewModel : AbstractValidationViewModel
  {
-	public ValidatableProperty<string> FirstName { get; set} = new ValidatableProperty<string>();
+	public ValidatableProperty<string> FirstName { get; set; } = new ValidatableProperty<string>();
  }
  
  ```
