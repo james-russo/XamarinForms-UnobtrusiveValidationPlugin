@@ -58,7 +58,25 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
             }
         }
 
-        public ValidatableEntryControl(string bindingName)
+        public static BindableProperty BindingNameProperty = BindableProperty.Create(nameof(BindingName),
+                                                                                    typeof(string),
+                                                                                    typeof(ValidatableEntryControl),
+                                                                                    string.Empty,
+                                                                                    BindingMode.OneWay);
+
+        public string BindingName
+        {
+            get
+            {
+                return (string)GetValue(BindingNameProperty);
+            }
+            set
+            {
+                SetValue(BindingNameProperty, value);
+            }
+        }
+
+        public ValidatableEntryControl()
         {
             Control.BindingContext = this;
             Control.SetBinding(Entry.TextProperty, "EntryText");
@@ -72,9 +90,14 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
 
             Children.Add(MessageLabel);
 
-            SetBinding(ValidatableEntryControl.TextEntryProperty, new Binding($"{bindingName}.Value"));
-            SetBinding(ValidatableEntryControl.IsInValidProperty, new Binding($"{bindingName}.IsInValid"));
-            SetBinding(ValidatableEntryControl.MessageProperty, new Binding($"{bindingName}.Message"));
+            SetBinding(ValidatableEntryControl.TextEntryProperty, new Binding($"{BindingName}.Value"));
+            SetBinding(ValidatableEntryControl.IsInValidProperty, new Binding($"{BindingName}.IsInValid"));
+            SetBinding(ValidatableEntryControl.MessageProperty, new Binding($"{BindingName}.Message"));
+        }
+
+        public ValidatableEntryControl(string bindingName) : this()
+        {
+            BindingName = bindingName;           
         }
 
         public Entry Control = new Entry();
