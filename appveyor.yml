@@ -1,4 +1,4 @@
 before_build:
-    - nuget resotre .\src\Xamarin.Plugins.UnobtrusiveFluentValidation.sln
+    - nuget restore .\src\Xamarin.Plugins.UnobtrusiveFluentValidation.sln
 build:
     project: .\src\Xamarin.Plugins.UnobtrusiveFluentValidation.sln
