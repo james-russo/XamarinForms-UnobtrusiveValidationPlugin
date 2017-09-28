@@ -1,4 +1,10 @@
+version: 1.0.{build}
+configuration: Release
+platform: Any CPU
 before_build:
-    - nuget restore .\src\Xamarin.Plugins.UnobtrusiveFluentValidation.sln
+- cmd: nuget restore .\src\Xamarin.Plugins.UnobtrusiveFluentValidation.sln
 build:
-    project: .\src\Xamarin.Plugins.UnobtrusiveFluentValidation.sln
+  project: .\src\Xamarin.Plugins.UnobtrusiveFluentValidation.sln
+  publish_nuget: true
+  include_nuget_references: true
+  verbosity: minimal
