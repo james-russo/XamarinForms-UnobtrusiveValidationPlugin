@@ -1,21 +1,2 @@
-image:
-- Visual Studio 2017
-
-branches:
-    only:
-      - master
-      - develop
-  configuration: Release
-- 
-  branches:
-    only:
-      - /feature/.*/
-  configuration: Release
--
-  branches:
-    only:
-      - /.*/merge/
-  configuration: Release
-  
 build:
     project: .\src\Xamarin.Plugins.UnobtrusiveFluentValidation.sln
