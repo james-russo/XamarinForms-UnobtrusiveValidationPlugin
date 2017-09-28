@@ -1,0 +1,17 @@
+-
+  branches:
+    only:
+      - master
+      - develop
+  configuration: Release
+- 
+  branches:
+    only:
+      - /feature/.*/
+  configuration: Release
+-
+  branches:
+    only:
+      - /.*/merge/
+  configuration: Release
+  
