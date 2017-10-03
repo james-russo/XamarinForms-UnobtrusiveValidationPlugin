@@ -6,7 +6,17 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
 
 	public class ValidatableProperty<TType> : INotifyPropertyChanged, IValidatableProperty
 	{
-		public event PropertyChangedEventHandler PropertyChanged;
+        public ValidatableProperty()
+        {
+
+        }
+
+        public ValidatableProperty(TType @value)
+        {
+            Value = @value;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
 		protected virtual void OnPropertyChanged(string propertyName)
 		{

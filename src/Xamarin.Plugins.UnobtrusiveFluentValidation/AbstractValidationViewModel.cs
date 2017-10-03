@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Input;
@@ -80,16 +79,8 @@ namespace Xamarin.Plugins.FluentValidation
 
 			ClearProperties();
 
-            Debug.WriteLine("----Properties-----");
-            foreach(var p in _properties)
-            {
-                Debug.WriteLine(p);
-            }
-
 			foreach (var error in results.Errors)
 			{
-                Debug.WriteLine(error.PropertyName);
-
                 var property = _properties[error.PropertyName];
 
 				if (property != null)
@@ -101,5 +92,4 @@ namespace Xamarin.Plugins.FluentValidation
 			return results.IsValid;
 		}
 	}
-
 }

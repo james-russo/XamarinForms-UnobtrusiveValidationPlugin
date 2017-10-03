@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Plugins.UnobtrusiveFluentValidation", "Xamarin.Plugins.UnobtrusiveFluentValidation\Xamarin.Plugins.UnobtrusiveFluentValidation.csproj", "{309FD507-7985-4A9D-A875-4EE236EFFD7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Plugins.UnobtrusiveFluentValidation.Tests", "Xamarin.Plugins.UnobtrusiveFluentValidation.Tests\Xamarin.Plugins.UnobtrusiveFluentValidation.Tests.csproj", "{2855F998-8D09-42D3-8A0A-0ECB95BC7896}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -49,5 +51,17 @@ Global
 		{309FD507-7985-4A9D-A875-4EE236EFFD7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{309FD507-7985-4A9D-A875-4EE236EFFD7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{309FD507-7985-4A9D-A875-4EE236EFFD7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Release|iPhone.Build.0 = Release|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2855F998-8D09-42D3-8A0A-0ECB95BC7896}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

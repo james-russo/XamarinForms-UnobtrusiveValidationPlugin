@@ -1,10 +1,41 @@
-version: 1.0.{build}
-configuration: Release
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+  
+image: Visual Studio 2017
 platform: Any CPU
-before_build:
-- cmd: nuget restore .\src\Xamarin.Plugins.UnobtrusiveFluentValidation.sln
-build:
-  project: .\src\Xamarin.Plugins.UnobtrusiveFluentValidation.sln
-  publish_nuget: true
-  include_nuget_references: true
-  verbosity: minimal
+
+for:
+
+-
+  branches:
+    only:
+      - master
+ 
+  configuration: Release
+  version: 1.0.{build}
+  build_script: powershell .\build.ps1 -Target Default -Verbosity diagnostic
+  artifacts:
+    - path: ./Build/nuget/*.nupkg
+      name: NuGet
+
+# configuration for all branches starting from "dev-"
+# build in Debug mode and deploy locally for testing
+-
+  branches:
+    only:
+      - development	  
+  image: Visual Studio 2017
+  configuration: Debug
+  build_script: powershell .\build.ps1 -Target Default -Verbosity diagnostic
+
+# "fall back" configuration for all other branches
+# no "branches" section defined
+# do not deploy at all
+-
+  configuration: Debug
+  build_script:
+   - cmd: powershell .\build.ps1 -Target Default -Verbosity diagnostic

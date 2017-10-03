@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Xamarin.Plugins.FluentValidation</id>
+        <version>$version$</version>
+        <title>Xamarin.Plugins.FluentValidation</title>
+        <authors>James Russo</authors>
+        <owners>James Russo</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A plugin library that integrates the functionality of FluentValidation and Xamarin.Forms to provide an unobtrusive user experience.</description>
+		<licenseUrl>https://github.com/james-russo/XamarinForms-UnobtrusiveValidationPlugin/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/james-russo/XamarinForms-UnobtrusiveValidationPlugin</projectUrl>
+		<tags>fluentvalidation, xamarin.forms, mobile, android, ios, </tags>
+        <dependencies>
+            <dependency id="FluentValidation" version="7.1.1" />
+            <dependency id="Microsoft.NETCore.Platforms" version="2.0.0" />
+            <dependency id="Microsoft.NETCore.Targets" version="2.0.0" />
+            <dependency id="NETStandard.Library" version="2.0.0" />
+            <dependency id="Xamarin.Forms" version="2.3.4.267" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="src\Xamarin.Plugins.UnobtrusiveFluentValidation\bin\Release\Xamarin.Plugins.FluentValidation.dll" target="lib\portable45-net45+win8+wpa81\Xamarin.Plugins.FluentValidation.dll" />
+    </files>
+</package>
