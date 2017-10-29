@@ -4,6 +4,10 @@ A plugin library that integrates the functionality of FluentValidation and Xamar
 
 The library follows an MVVM pattern and below are examples on how to get started.  
  
+ ## Preview
+ ![alt text](https://github.com/james-russo/XamarinForms-UnobtrusiveValidationPlugin/blob/master/samples/sample.gif "Sample In Action")
+
+ 
  ### Get Started
  
  #### FluentValidation AbstractValidator (EnhancedAbstractValidator)
@@ -40,9 +44,9 @@ The library follows an MVVM pattern and below are examples on how to get started
  
  ### Xamarin.Forms UI Page
  
+ #### Code Page
  ```csharp
- 
-	public class PersonPage : ContentPage
+    public class PersonPage : ContentPage
     {
         public PersonPage()
         {
@@ -74,7 +78,7 @@ The library follows an MVVM pattern and below are examples on how to get started
     }
  
  ```
- 
+ #### XAML Page
  ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
