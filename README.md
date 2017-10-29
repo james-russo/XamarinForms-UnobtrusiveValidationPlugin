@@ -75,4 +75,19 @@ The library follows an MVVM pattern and below are examples on how to get started
  
  ```
  
- COMING SOON... XAML EXAMPLE.
+ ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Test.XamlTest"
+    xmlns:custom="clr-namespace:Xamarin.Plugins.UnobtrusiveFluentValidation;assembly=Xamarin.Plugins.FluentValidation">
+	<ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label>Name</Label>
+            <custom:ValidatableEntryControl BindingName="Name"></custom:ValidatableEntryControl>
+            <Button x:Name="btnSubmit" Text="Submit" Command="{Binding ValidateCommand}"></Button>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>	
+
+ ```

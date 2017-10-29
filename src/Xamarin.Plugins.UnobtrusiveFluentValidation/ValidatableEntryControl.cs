@@ -62,7 +62,13 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
                                                                                     typeof(string),
                                                                                     typeof(ValidatableEntryControl),
                                                                                     string.Empty,
-                                                                                    BindingMode.OneWay);
+                                                                                     BindingMode.OneWay,
+                                                                                     propertyChanged: (bindable, oldValue, newValue) => {
+            
+            bindable.SetBinding(ValidatableEntryControl.TextEntryProperty, new Binding($"{newValue}.Value"));
+            bindable.SetBinding(ValidatableEntryControl.IsInValidProperty, new Binding($"{newValue}.IsInValid"));
+            bindable.SetBinding(ValidatableEntryControl.MessageProperty, new Binding($"{newValue}.Message"));
+        });
 
         public string BindingName
         {
@@ -90,9 +96,6 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
 
             Children.Add(MessageLabel);
 
-            SetBinding(ValidatableEntryControl.TextEntryProperty, new Binding($"{BindingName}.Value"));
-            SetBinding(ValidatableEntryControl.IsInValidProperty, new Binding($"{BindingName}.IsInValid"));
-            SetBinding(ValidatableEntryControl.MessageProperty, new Binding($"{BindingName}.Message"));
         }
 
         public ValidatableEntryControl(string bindingName) : this()

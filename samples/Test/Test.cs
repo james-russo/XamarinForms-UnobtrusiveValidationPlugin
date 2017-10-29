@@ -2,10 +2,6 @@
 using Xamarin.Forms;
 using Xamarin.Plugins.UnobtrusiveFluentValidation;
 using Xamarin.Plugins.FluentValidation;
-using System.Diagnostics;
-using System.Reflection;
-using System.Linq;
-
 namespace Test
 {
     [FluentValidation.Attributes.Validator(typeof(TestValidator))]
@@ -66,7 +62,9 @@ namespace Test
         public App()
         {
             // The root page of your application
-            var content = new TestPage();
+            var content = new XamlTest();
+
+            //var content = new TestPage();
 
             MainPage = new NavigationPage(content);
         }
