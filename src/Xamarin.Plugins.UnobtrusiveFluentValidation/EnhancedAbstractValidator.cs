@@ -8,6 +8,10 @@ using Xamarin.Plugins.UnobtrusiveFluentValidation;
 
 namespace Xamarin.Plugins.FluentValidation
 {
+    /// <summary>
+    /// Base class for a FluentValidation Validator that works with ValidatableProperties.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class EnhancedAbstractValidator<T> : AbstractValidator<T>
         where T : AbstractValidationViewModel
     {

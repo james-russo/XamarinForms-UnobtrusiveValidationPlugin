@@ -2,14 +2,22 @@
 
 namespace Xamarin.Plugins.UnobtrusiveFluentValidation
 {
+    /// <summary>
+    /// A Entry user control that works with a EnhancedAbstractValidator view model.
+    /// </summary>
     public class ValidatableEntryControl : StackLayout
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public static BindableProperty TextEntryProperty = BindableProperty.Create(nameof(EntryText),
                                                                                    typeof(string),
                                                                                    typeof(ValidatableEntryControl),
                                                                                    string.Empty,
                                                                                    BindingMode.TwoWay);
-
+        /// <summary>
+        /// The value of the Entry displayed to the user.
+        /// </summary>
         public string EntryText
         {
             get
@@ -27,7 +35,9 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
                                                                                    typeof(ValidatableEntryControl),
                                                                                    false,
                                                                                    BindingMode.TwoWay);
-
+        /// <summary>
+        /// Status of control.
+        /// </summary>
         public bool IsInValid
         {
             get
@@ -40,12 +50,18 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static BindableProperty MessageProperty = BindableProperty.Create(nameof(Message),
                                                                                    typeof(string),
                                                                                    typeof(ValidatableEntryControl),
                                                                                    string.Empty,
                                                                                    BindingMode.TwoWay);
 
+        /// <summary>
+        /// Message displayed to the user.
+        /// </summary>
         public string Message
         {
             get
@@ -58,6 +74,9 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static BindableProperty BindingNameProperty = BindableProperty.Create(nameof(BindingName),
                                                                                     typeof(string),
                                                                                     typeof(ValidatableEntryControl),
@@ -70,6 +89,9 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
             bindable.SetBinding(ValidatableEntryControl.MessageProperty, new Binding($"{newValue}.Message"));
         });
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string BindingName
         {
             get
@@ -82,6 +104,9 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ValidatableEntryControl()
         {
             Control.BindingContext = this;
@@ -98,13 +123,23 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bindingName"></param>
         public ValidatableEntryControl(string bindingName) : this()
         {
             BindingName = bindingName;           
         }
 
+        /// <summary>
+        /// The entry control shown to the user.
+        /// </summary>
         public Entry Control = new Entry();
 
+        /// <summary>
+        /// The message label shown to the user.
+        /// </summary>
         public Label MessageLabel = new Label();
     }
 }
