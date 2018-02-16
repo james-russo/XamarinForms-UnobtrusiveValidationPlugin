@@ -8,8 +8,14 @@ using Xamarin.Forms;
 
 namespace Xamarin.Plugins.FluentValidation
 {
+    /// <summary>
+    /// Base class for Validation view models.
+    /// </summary>
 	public abstract class AbstractValidationViewModel
     {
+        /// <summary>
+        /// Validate Command that will call Validate by default.
+        /// </summary>
 		public ICommand ValidateCommand { get; set; }
 
         private readonly IDictionary<string, IValidatableProperty> _properties = new Dictionary<string, IValidatableProperty>();
@@ -22,6 +28,9 @@ namespace Xamarin.Plugins.FluentValidation
 			}
 		}
          
+        /// <summary>
+        /// 
+        /// </summary>
 		protected AbstractValidationViewModel()
 		{
 			var typeInfo = this.GetType()
@@ -48,6 +57,11 @@ namespace Xamarin.Plugins.FluentValidation
 			return results;
 		}
 
+        /// <summary>
+        /// Validate a single property by the name.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
 		protected virtual bool ValidateProperty(string propertyName)
 		{
 			if (!_properties.ContainsKey(propertyName))
@@ -73,6 +87,10 @@ namespace Xamarin.Plugins.FluentValidation
 			return error == null;
 		}
 
+        /// <summary>
+        /// Execution method for validating the entire view model.
+        /// </summary>
+        /// <returns></returns>
 		protected virtual bool Validate()
 		{
 			var results = GetValidationResult();

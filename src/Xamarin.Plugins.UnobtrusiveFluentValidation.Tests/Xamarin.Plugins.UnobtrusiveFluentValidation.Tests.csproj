@@ -29,27 +29,27 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="FluentValidation">
-      <HintPath>..\packages\FluentValidation.7.1.1\lib\net45\FluentValidation.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ValidationTest.cs" />
     <Compile Include="Models\PersonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.Plugins.UnobtrusiveFluentValidation\Xamarin.Plugins.UnobtrusiveFluentValidation.csproj">
-      <Project>{309FD507-7985-4A9D-A875-4EE236EFFD7A}</Project>
+      <Project>{48789e75-8ae8-4cb1-b337-7ee687092438}</Project>
       <Name>Xamarin.Plugins.UnobtrusiveFluentValidation</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation">
+      <Version>7.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="NUnit">
+      <Version>3.9.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,9 +8,19 @@ using Xamarin.Plugins.UnobtrusiveFluentValidation;
 
 namespace Xamarin.Plugins.FluentValidation
 {
+    /// <summary>
+    /// Base class for a FluentValidation Validator that works with ValidatableProperties.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class EnhancedAbstractValidator<T> : AbstractValidator<T>
         where T : AbstractValidationViewModel
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TType"></typeparam>
+        /// <param name="expression"></param>
+        /// <returns></returns>
         public IRuleBuilderInitial<T, TType> RuleForProp<TType>(Expression<Func<T, ValidatableProperty<TType>>> expression)
         {
             var propName = expression.Body.ToString().Split(new char[] { '.' })[1];

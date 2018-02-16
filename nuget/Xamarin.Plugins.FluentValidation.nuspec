@@ -10,16 +10,15 @@
         <description>A plugin library that integrates the functionality of FluentValidation and Xamarin.Forms to provide an unobtrusive user experience.</description>
 		<licenseUrl>https://github.com/james-russo/XamarinForms-UnobtrusiveValidationPlugin/blob/master/LICENSE</licenseUrl>
 		<projectUrl>https://github.com/james-russo/XamarinForms-UnobtrusiveValidationPlugin</projectUrl>
-		<tags>fluentvalidation, xamarin.forms, mobile, android, ios, </tags>
+		<tags>fluentvalidation, xamarin.forms, mobile, android, ios, .net core </tags>
         <dependencies>
-            <dependency id="FluentValidation" version="7.1.1" />
-            <dependency id="Microsoft.NETCore.Platforms" version="2.0.0" />
-            <dependency id="Microsoft.NETCore.Targets" version="2.0.0" />
-            <dependency id="NETStandard.Library" version="2.0.0" />
-            <dependency id="Xamarin.Forms" version="2.3.4.267" />
+			<group targetFramework="netstandard2.0">
+				<dependency id="FluentValidation" version="7.1.1" />			
+				<dependency id="Xamarin.Forms" version="2.4.0.280" />
+			</group>
         </dependencies>
     </metadata>
     <files>
-        <file src="src\Xamarin.Plugins.UnobtrusiveFluentValidation\bin\Release\Xamarin.Plugins.FluentValidation.dll" target="lib\portable45-net45+win8+wpa81\Xamarin.Plugins.FluentValidation.dll" />
+        <file src="src\Xamarin.Plugins.UnobtrusiveFluentValidation\bin\Release\netstandard2.0\Xamarin.Plugins.FluentValidation.dll" target="lib\netstandard2.0" />
     </files>
 </package>
