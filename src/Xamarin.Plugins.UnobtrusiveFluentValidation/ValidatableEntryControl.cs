@@ -30,6 +30,9 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static BindableProperty IsInValidProperty = BindableProperty.Create(nameof(IsInValid),
                                                                                    typeof(bool),
                                                                                    typeof(ValidatableEntryControl),
