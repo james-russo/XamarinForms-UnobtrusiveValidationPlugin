@@ -85,12 +85,13 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
                                                                                     typeof(ValidatableEntryControl),
                                                                                     string.Empty,
                                                                                      BindingMode.OneWay,
-                                                                                     propertyChanged: (bindable, oldValue, newValue) => {
-            
-            bindable.SetBinding(ValidatableEntryControl.TextEntryProperty, new Binding($"{newValue}.Value"));
-            bindable.SetBinding(ValidatableEntryControl.IsInValidProperty, new Binding($"{newValue}.IsInValid"));
-            bindable.SetBinding(ValidatableEntryControl.MessageProperty, new Binding($"{newValue}.Message"));
-        });
+                                                                                     propertyChanged: (bindable, oldValue, newValue) =>
+                                                                                     {
+
+                                                                                         bindable.SetBinding(ValidatableEntryControl.TextEntryProperty, new Binding($"{newValue}.Value"));
+                                                                                         bindable.SetBinding(ValidatableEntryControl.IsInValidProperty, new Binding($"{newValue}.IsInValid"));
+                                                                                         bindable.SetBinding(ValidatableEntryControl.MessageProperty, new Binding($"{newValue}.Message"));
+                                                                                     });
 
         /// <summary>
         /// 
@@ -107,6 +108,25 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
             }
         }
 
+        public static BindableProperty PlaceholderProperty = BindableProperty.Create(nameof(Placeholder),
+                                                                                    typeof(string),
+                                                                                     typeof(ValidatableEntryControl),
+                                                                                     string.Empty,
+                                                                                     BindingMode.OneWay);
+
+        public string Placeholder
+        {
+            get
+            {
+                return (string)GetValue(PlaceholderProperty);
+            }
+            set
+            {
+                SetValue(PlaceholderProperty, value);
+            }
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -114,6 +134,7 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
         {
             Control.BindingContext = this;
             Control.SetBinding(Entry.TextProperty, "EntryText");
+            Control.SetBinding(Entry.PlaceholderProperty, "Placeholder");
 
             Children.Add(Control);
 
@@ -132,7 +153,7 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
         /// <param name="bindingName"></param>
         public ValidatableEntryControl(string bindingName) : this()
         {
-            BindingName = bindingName;           
+            BindingName = bindingName;
         }
 
         /// <summary>
