@@ -45,7 +45,7 @@ namespace Xamarin.Plugins.FluentValidation
 
 			AddRule(rule);
 
-            IRuleBuilderOptions<T, TType> ruleBuilder = new RuleBuilder<T, TType>(rule);
+            IRuleBuilderOptions<T, TType> ruleBuilder = new RuleBuilder<T, TType>(rule, this);
 
             ruleBuilder = ruleBuilder.WithName(propName);
 
