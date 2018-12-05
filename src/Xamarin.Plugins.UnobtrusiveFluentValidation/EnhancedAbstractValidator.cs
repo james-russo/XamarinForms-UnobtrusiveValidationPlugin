@@ -16,32 +16,35 @@ namespace Xamarin.Plugins.FluentValidation
         where T : AbstractValidationViewModel
     {
         /// <summary>
-        /// 
+        /// When using the ValidatableProperty type, use this method to avoid needing to supply the ".Value" 
+        /// which is needed when using RuleForProp.
         /// </summary>
         /// <typeparam name="TType"></typeparam>
         /// <param name="expression"></param>
         /// <returns></returns>
-        public IRuleBuilderInitial<T, TType> RuleForProp<TType>(Expression<Func<T, ValidatableProperty<TType>>> expression)
+        public IRuleBuilderInitial<T, TType> RuleForProp<TType>(Expression<Func<T, ValidatableProperty<TType>>> expression, CascadeMode cascadeMode = CascadeMode.Continue)
         {
-            var propName = expression.Body.ToString().Split(new char[] { '.' })[1];
+            var lambdaExpression = (MemberExpression)expression.Body;
 
-            var param = Expression.Parameter(typeof(T), "a");
+            var propName = lambdaExpression.Member.Name;
 
-            var navigationProperty = typeof(T).GetRuntimeProperty(propName);
+            var originalPropertyType = typeof(T).GetRuntimeProperty(propName);
+           
+            var actualPropertyToValidate = typeof(ValidatableProperty<TType>).GetRuntimeProperty("Value");
 
-            var name = typeof(ValidatableProperty<TType>).GetRuntimeProperty("Value");
+            var generatedExpression = Expression.Parameter(typeof(T), "a");
 
-            var navigationPropertyAccess = Expression.MakeMemberAccess(param, navigationProperty);
+            var navigationPropertyAccess = Expression.MakeMemberAccess(generatedExpression, originalPropertyType);
+           
+            var lambdaNameMemberAccess = Expression.MakeMemberAccess(navigationPropertyAccess, actualPropertyToValidate);
 
-            var nameAccess = Expression.MakeMemberAccess(navigationPropertyAccess, name);
+            var lambdaAccess = Expression.Lambda<Func<T, TType>>(lambdaNameMemberAccess, new List<ParameterExpression>() { generatedExpression });
 
-            var lambdaAccess = Expression.Lambda<Func<T, TType>>(nameAccess, new List<ParameterExpression>() { param });
+            var generatedMember = lambdaAccess.GetMember();
 
-            var member = lambdaAccess.GetMember();
+           	var compiled = generatedMember == null || ValidatorOptions.DisableAccessorCache ? lambdaAccess.Compile() : AccessorCache<T>.GetCachedAccessor(generatedMember, lambdaAccess);
 
-            var compiled = member == null || ValidatorOptions.DisableAccessorCache ? lambdaAccess.Compile() : AccessorCache<T>.GetCachedAccessor(member, lambdaAccess);
-
-            var rule = new PropertyRule(member, compiled.CoerceToNonGeneric(), lambdaAccess, () => CascadeMode.Continue, typeof(TType), typeof(T));
+			var rule = new PropertyRule(generatedMember, compiled.CoerceToNonGeneric(), lambdaAccess, () => cascadeMode, typeof(TType), typeof(T));
 
             AddRule(rule);
 

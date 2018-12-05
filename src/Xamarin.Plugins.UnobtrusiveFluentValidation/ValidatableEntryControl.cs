@@ -8,7 +8,7 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
     public class ValidatableEntryControl : StackLayout
     {
         /// <summary>
-        /// 
+        /// The bindable property for the Entry's text value.
         /// </summary>
         public static BindableProperty TextEntryProperty = BindableProperty.Create(nameof(EntryText),
                                                                                    typeof(string),
@@ -31,7 +31,7 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
         }
 
         /// <summary>
-        /// 
+        /// The bindable property for whether the control is invalid.
         /// </summary>
         public static BindableProperty IsInValidProperty = BindableProperty.Create(nameof(IsInValid),
                                                                                    typeof(bool),
@@ -54,7 +54,7 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
         }
 
         /// <summary>
-        /// 
+        /// The bindable property for the error message that should appear to the user.
         /// </summary>
         public static BindableProperty MessageProperty = BindableProperty.Create(nameof(Message),
                                                                                    typeof(string),
@@ -78,7 +78,7 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
         }
 
         /// <summary>
-        /// 
+        /// The bindable property to bind to the view model.
         /// </summary>
         public static BindableProperty BindingNameProperty = BindableProperty.Create(nameof(BindingName),
                                                                                     typeof(string),
@@ -94,7 +94,7 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
                                                                                      });
 
         /// <summary>
-        /// 
+        /// The property bound to the view model.
         /// </summary>
         public string BindingName
         {
@@ -108,12 +108,18 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
             }
         }
 
+        /// <summary>
+        /// The bindable property to bind the placeholder against.
+        /// </summary>
         public static BindableProperty PlaceholderProperty = BindableProperty.Create(nameof(Placeholder),
                                                                                     typeof(string),
                                                                                      typeof(ValidatableEntryControl),
                                                                                      string.Empty,
                                                                                      BindingMode.OneWay);
-
+        /// <summary>
+        /// Gets or sets the placeholder.
+        /// </summary>
+        /// <value>The placeholder.</value>
         public string Placeholder
         {
             get
@@ -128,7 +134,7 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
 
 
         /// <summary>
-        /// 
+        /// A control that encapsulates an Entry and Label to simplify form validation.
         /// </summary>
         public ValidatableEntryControl()
         {
@@ -148,9 +154,9 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
         }
 
         /// <summary>
-        /// 
+        /// A control that encapsulates an Entry and Label to simplify form validation.
         /// </summary>
-        /// <param name="bindingName"></param>
+        /// <param name="bindingName">Set the binding name when instainated.</param>
         public ValidatableEntryControl(string bindingName) : this()
         {
             BindingName = bindingName;
