@@ -13,8 +13,9 @@
 		<tags>fluentvalidation, xamarin.forms, mobile, android, ios, .net core </tags>
         <dependencies>
 			<group targetFramework="netstandard2.0">
-				<dependency id="FluentValidation" version="7.1.1" />			
-				<dependency id="Xamarin.Forms" version="2.4.0.280" />
+				<dependency id="FluentValidation" version="8.0.101" />			
+				<dependency id="FluentValidation.ValidatorAttribute" version="8.0.100" />
+				<dependency id="Xamarin.Forms" version="3.4.0.1008975" />
 			</group>
         </dependencies>
     </metadata>
