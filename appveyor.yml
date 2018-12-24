@@ -16,7 +16,7 @@ for:
       - master
  
   configuration: Release
-  version: 2.0.{build}
+  version: 3.0.{build}
   build_script: powershell .\build.ps1 -Target Default -Verbosity diagnostic
   artifacts:
     - path: ./Build/nuget/*.nupkg
