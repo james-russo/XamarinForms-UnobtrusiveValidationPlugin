@@ -132,6 +132,29 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
             }
         }
 
+        /// <summary>
+        /// The bindable property to bind the placeholder against.
+        /// </summary>
+        public static BindableProperty IsPasswordProperty = BindableProperty.Create(nameof(IsPassword),
+                                                                                    typeof(bool),
+                                                                                    typeof(ValidatableEntryControl),
+                                                                                    false,
+                                                                                    BindingMode.OneWay);
+        /// <summary>
+        /// Gets or sets the placeholder.
+        /// </summary>
+        /// <value>The placeholder.</value>
+        public bool IsPassword
+        {
+            get
+            {
+                return (bool)GetValue(IsPasswordProperty);
+            }
+            set
+            {
+                SetValue(IsPasswordProperty, value);
+            }
+        }
 
         /// <summary>
         /// A control that encapsulates an Entry and Label to simplify form validation.
@@ -141,6 +164,7 @@ namespace Xamarin.Plugins.UnobtrusiveFluentValidation
             Control.BindingContext = this;
             Control.SetBinding(Entry.TextProperty, "EntryText");
             Control.SetBinding(Entry.PlaceholderProperty, "Placeholder");
+            Control.SetBinding(Entry.IsPasswordProperty, "IsPassword");
 
             Children.Add(Control);
 
